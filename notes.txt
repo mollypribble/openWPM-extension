@@ -1,0 +1,11 @@
+Steps to set up openWPN (MacOS):
+1. Follow set up steps on openWPM readme
+    1. ./install.sh
+    2. conda activate OpenWPM (<— need conda if you don’t already have)
+2. Install stuff
+    1. Sudo pip3 install selenium
+    2. Pip3 install dataclasses-json dill domain_utils bs4 psutil tblib multiprocess easyprocess pyvirtualdisplay tabulate jsonschema sentry_sdk
+3. Download/update Firefox
+4. Python3 -m demo (runs demo.py)
+
+Making Firefox extension: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension
