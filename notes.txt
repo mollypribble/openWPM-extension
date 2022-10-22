@@ -17,7 +17,7 @@ python3 -m dp_crawl
 python3 -m dp_analysis
 
 To edit:
-- dp_crawl.py: change the urls of sites we want to crawl 
+- dp_crawl.py: change/pass in the urls of sites we want to crawl 
 - dp_customer_command.py: change commands called during crawl
 - dp_analysis.py: change analysis/report
 
