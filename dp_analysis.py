@@ -30,7 +30,7 @@ for name in cur.execute("SELECT DISTINCT j.name "
 
 print("Cookies found: ", cookies, "----\n")
 
-# short example getting cookies from sites visited during crawl
+# headers
 headers = set()
 
 for header in cur.execute("SELECT DISTINCT h.headers "
