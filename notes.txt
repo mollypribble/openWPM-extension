@@ -1,3 +1,5 @@
+Original OpenWPM Paper: https://www.cs.princeton.edu/~arvindn/publications/OpenWPM_1_million_site_tracking_measurement.pdf
+
 Steps to set up openWPN (MacOS):
 1. Follow set up steps on openWPM readme
     1. ./install.sh
@@ -8,4 +10,20 @@ Steps to set up openWPN (MacOS):
 3. Download/update Firefox
 4. Python3 -m demo (runs demo.py)
 
+OpenWPM docs: https://openwpm.readthedocs.io/en/latest/
+
+To run:
+python3 -m dp_crawl
+python3 -m dp_analysis
+
+To edit:
+- dp_crawl.py: change the urls of sites we want to crawl 
+- dp_customer_command.py: change commands called during crawl
+- dp_analysis.py: change analysis/report
+
 Resources for making Firefox extension: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension
+
+General Approach:
+- On webpage load, pass url to dp_crawl and run (is there a way to do this in the background/without taking over their browser for a few seconds?)
+- Then run dp_analysis
+- Pass relevant results back and display on extension
