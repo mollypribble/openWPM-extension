@@ -8,7 +8,8 @@ Steps to set up openWPN (MacOS):
     1. Sudo pip3 install selenium
     2. Pip3 install dataclasses-json dill domain_utils bs4 psutil tblib multiprocess easyprocess pyvirtualdisplay tabulate jsonschema sentry_sdk
 3. Download/update Firefox
-4. Python3 -m demo (runs demo.py)
+4. Download appropriate geckodriver (https://github.com/mozilla/geckodriver/releases) and move to /usr/local/bin/ on machine
+5. Python3 -m dp_demo (runs dp_demo.py)
 
 OpenWPM docs: https://openwpm.readthedocs.io/en/latest/
 
@@ -25,5 +26,6 @@ Resources for making Firefox extension: https://developer.mozilla.org/en-US/docs
 
 General Approach:
 - On webpage load, pass url to dp_crawl and run (is there a way to do this in the background/without taking over their browser for a few seconds?)
+- Use headless display mode to not disrupt browser experience
 - Then run dp_analysis
 - Pass relevant results back and display on extension

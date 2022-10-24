@@ -12,18 +12,22 @@ from openwpm.task_manager import TaskManager
 
 ### CHANGE (or pass in) URLS WE WANT TO CRAWL HERE ###
 NUM_BROWSERS = 1
-sites = [
+sites_original = [
     "http://www.example.com",
     "http://www.princeton.edu",
     "http://citp.princeton.edu/",
 ]
+
+# testing out how long it takes to run on one site (15-18 secs to crawl and execute custom commands)
+sites = ["http://www.princeton.edu"]
 #######################################################
 
 # Loads the default ManagerParams
 # and NUM_BROWSERS copies of the default BrowserParams
 
+# make browser_params display_mode "headless" to run crawl without GUI
 manager_params = ManagerParams(num_browsers=NUM_BROWSERS)
-browser_params = [BrowserParams(display_mode="native") for _ in range(NUM_BROWSERS)]
+browser_params = [BrowserParams(display_mode="headless") for _ in range(NUM_BROWSERS)]
 
 # Update browser configuration (use this for per-browser settings)
 for browser_param in browser_params:
