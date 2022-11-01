@@ -11,7 +11,7 @@ let style = document.createElement('style');
   }
   .popup-owpm .popup {
     visibility: visible;
-    width: 160px;
+    width: 350px;
     background-color: #555;
     color: #fff;
     text-align: center;
@@ -22,7 +22,7 @@ let style = document.createElement('style');
   }
   .collapsed-owpm .collapsed {
     visibility: hidden;
-    width: 160px;
+    width: 100px;
     background-color: #555;
     color: #fff;
     text-align: center;
