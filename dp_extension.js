@@ -28,6 +28,7 @@ let style = document.createElement('style');
     bottom: 5; 
     right: 5;
     font-family: KanitLight;
+    border: 1px solid #A2A2A2;
   }
   .collapsed-owpm .collapsed {
     visibility: hidden;
