@@ -20,7 +20,7 @@ let style = document.createElement('style');
   .popup-owpm .popup {
     visibility: visible;
     width: 360px;
-    background-color: white;
+    background-color: #FAFDFE;
     color: black;
     text-align: left;
     position: fixed;
