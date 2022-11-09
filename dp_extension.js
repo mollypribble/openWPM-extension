@@ -4,10 +4,11 @@
 // 3. require json file in this extension and on load store data in relevant variables
 // 4. render pop up on page load
 // 5. toggle pop up to minimize
-// *** steps 1-2 done before hand/need to be re-done if we want to add any more sites in the future ***
+// *** steps 1-2 done beforehand/need to be re-done if we want to add any more sites in the future ***
+
 
 // get data
-// import dataJson from './data.json' assert {type: 'json'}
+import { dataJson } from "./data.json"
 
 // define style
 let style = document.createElement('style');
@@ -115,7 +116,7 @@ function loadExtension(){
   console.log("got url")
   console.log(url)
 
-  // set data global var
+  // set data global var and then load popup
   getData();
 
   // render pop-up
@@ -125,13 +126,16 @@ function loadExtension(){
 // get data
 function getData(){
   console.log("get data");
-  // FROM dataJson GET THE RELEVANT DATA BASED ON URL AND STORE IN GLOBAL VARIABLES 
+  dataObj = JSON.parse(dataJson);
+  console.log(dataObj);
 };
 
 // load pop-up
 function loadPopup(){
     let body = document.getElementsByTagName("body")[0]
     body.insertAdjacentHTML ("afterbegin", popup);
+    body.style.width = '360px';
+    body.style.height = '350px';
     body.insertAdjacentHTML ("afterbegin", collapsed);
 };
 
