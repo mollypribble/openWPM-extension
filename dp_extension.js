@@ -1,3 +1,14 @@
+// our approach: 
+// 1. run crawl for all websites we want. this gets data into a sqlite db. 
+// 2. run python script to transform this data into a json file with url (key), totalCookies, total with HTTP==True, total with HostOnly==True, and top 3 common domain names.
+// 3. require json file in this extension and on load store data in relevant variables
+// 4. render pop up on page load
+// 5. toggle pop up to minimize
+// *** steps 1-2 done before hand/need to be re-done if we want to add any more sites in the future ***
+
+// get data
+// import dataJson from './data.json' assert {type: 'json'}
+
 // define style
 let style = document.createElement('style');
   style.innerHTML = `
@@ -52,14 +63,14 @@ let style = document.createElement('style');
     flex-direction: row;
   }`;
 
-// display # of cookies
-let numCookies = "25" // PLACEHOLDER: PUT INFO FROM DB HERE
 
-// display http/host only details
-let numHTTP = "1" // PLACEHOLDER: PUT INFO FROM DB HERE
-let numHost = "3" // PLACEHOLDER: PUT INFO FROM DB HERE
-let numNotHTTP = "24" // PLACEHOLDER: PUT INFO FROM DB HERE
-let numNotHost = "21" // PLACEHOLDER: PUT INFO FROM DB HERE
+// define global variables
+let numCookies = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let numHTTP = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let numHost = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let numNotHTTP = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let numNotHost = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let url = "XX" // PLACEHOLDER: PUT INFO FROM PAGE HERE ON LOAD
 
 // display common cookies
 let cookies = ["Chocolate chip", "Sugar", "Lemon drop"] // PLACEHOLDER: PUT INFO FROM DB HERE (would be nice to grab the top 3 hosts when we query the DB so we don't have to do it here)
@@ -92,13 +103,32 @@ let collapsed = `<div class="collapsed-owpm" id="draggable">
                     </div>
                 </div>`;
 
-// on page load:
-// append style
-// append pop-up/collapsed pop-up to body div (pop-up visibility --> visible, collapsed pop-up --> hidden)
-console.log("loaded");
-document.head.appendChild(style);
-loadPopup();
+// load extension
+function loadExtension(){
+  console.log("loaded");
 
+  // append styling
+  document.head.appendChild(style);
+
+  // set url global var
+  url = window.location.href;
+  console.log("got url")
+  console.log(url)
+
+  // set data global var
+  getData();
+
+  // render pop-up
+  loadPopup();
+};
+
+// get data
+function getData(){
+  console.log("get data");
+  // FROM dataJson GET THE RELEVANT DATA BASED ON URL AND STORE IN GLOBAL VARIABLES 
+};
+
+// load pop-up
 function loadPopup(){
     let body = document.getElementsByTagName("body")[0]
     body.insertAdjacentHTML ("afterbegin", popup);
@@ -113,3 +143,6 @@ function togglePopup(){
     var localCollapse = document.getElementById("collapsed-owpm-id");
     localCollapse.classList.toggle("show");
 };
+
+// on page load: load extension --> will call functions to get appropriate data and append display to HTMl body
+window.onload = loadExtension();
