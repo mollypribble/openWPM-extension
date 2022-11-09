@@ -13,10 +13,6 @@ let style = document.createElement('style');
     position: relative;
     display: inline-block;
   }
-  .collapsed-owpm {
-    position: relative;
-    display: inline-block;
-  }
   .popup-owpm .popup {
     visibility: visible;
     width: 360px;
@@ -29,23 +25,6 @@ let style = document.createElement('style');
     right: 5;
     font-family: KanitLight;
     border: 1px solid #A2A2A2;
-  }
-  .collapsed-owpm .collapsed {
-    visibility: hidden;
-    width: 70px;
-    color: #fff;
-    text-align: center;
-    position: fixed;
-    z-index: 100;
-    bottom: 5; 
-    right: 5;
-    opacity: 0.8;
-  }
-  .popup-owpm .show{
-    visibility: hidden;
-  }
-  .collapsed-owpm .show{
-    visibility: visible;
   }
   .header{
     display: flex;
@@ -70,7 +49,7 @@ let popup = `<div class="popup-owpm">
                     <div class="header">
                         <img src="dp_frontend/cookies.png" width=60px style="margin:10px; margin-right:0px;">
                         <p style="font-family:KanitBold; margin:5px; font-size:32px; width:250px; margin-top:20px">The Cookie Jar</p>
-                        <img src="dp_frontend/x.png" width=20px onclick="togglePopup()" style="cursor:pointer; margin:10px; margin-bottom: 50px; opacity: 0.7">
+                        <img src="dp_frontend/x.png" width=20px style="cursor:pointer; margin:10px; margin-bottom: 50px; opacity: 0.7">
                     </div>
                     <p style="margin:10px; padding-left:10px; font-size:18px;"> We've detected ${numCookies} cookies on this page</p>
                     <p style="margin:10px; padding-left:10px; font-size:16px;"> ${numNotHTTP}/${numCookies} are visible to outside scripts</p>
@@ -85,13 +64,6 @@ let popup = `<div class="popup-owpm">
                 </div> 
             </div>`;
 
-// define collapsed pop-up
-let collapsed = `<div class="collapsed-owpm" id="draggable">
-                    <div class="collapsed" id="collapsed-owpm-id">
-                        <img src="dp_frontend/cookies.png" width=60px onclick="togglePopup()" style="cursor:pointer; margin:5px;">
-                    </div>
-                </div>`;
-
 // on page load:
 // append style
 // append pop-up/collapsed pop-up to body div (pop-up visibility --> visible, collapsed pop-up --> hidden)
@@ -100,16 +72,8 @@ document.head.appendChild(style);
 loadPopup();
 
 function loadPopup(){
-    let body = document.getElementsByTagName("body")[0]
-    body.insertAdjacentHTML ("afterbegin", popup);
-    body.insertAdjacentHTML ("afterbegin", collapsed);
-};
-
-// toggle pop-up
-function togglePopup(){
-    console.log("toggle popup")
-    var localPopup = document.getElementById("popup-owpm-id");
-    localPopup.classList.toggle("show");
-    var localCollapse = document.getElementById("collapsed-owpm-id");
-    localCollapse.classList.toggle("show");
+  let body = document.getElementsByTagName("body")[0];
+  body.insertAdjacentHTML("afterbegin", popup);
+  body.style.width = '360px';
+  body.style.height = '350px';
 };
