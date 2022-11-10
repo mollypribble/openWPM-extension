@@ -58,11 +58,11 @@ manager_params.log_path = Path("./datadir/openwpm.log")
 with TaskManager(
     manager_params,
     browser_params,
-    SQLiteStorageProvider(Path("./datadir/crawl-data.sqlite")),
+    SQLiteStorageProvider(Path("./datadir/crawl-data-new.sqlite")),
     None,
 ) as manager:
     # Visits the sites
-    for index, site in enumerate(sites):
+    for index, site in enumerate(sites_original):
 
         def callback(success: bool, val: str = site) -> None:
             print(

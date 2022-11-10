@@ -66,15 +66,13 @@ let style = document.createElement('style');
 
 
 // define global variables
-let numCookies = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
-let numHTTP = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
-let numHost = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
-let numNotHTTP = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
-let numNotHost = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
-let url = "XX" // PLACEHOLDER: PUT INFO FROM PAGE HERE ON LOAD
+let numCookies = "??" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let numNotHTTP = "??" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let numNotHost = "??" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let url = "??" // PLACEHOLDER: PUT INFO FROM PAGE HERE ON LOAD
 
 // display common cookies
-let cookies = ["Chocolate chip", "Sugar", "Lemon drop"] // PLACEHOLDER: PUT INFO FROM DB HERE (would be nice to grab the top 3 hosts when we query the DB so we don't have to do it here)
+let cookies = ["--", "--", "--"] // PLACEHOLDER: PUT INFO FROM DB HERE (would be nice to grab the top 3 hosts when we query the DB so we don't have to do it here)
 
 // define pop-up HTML
 let popup = `<div class="popup-owpm"> 
@@ -127,7 +125,17 @@ function loadExtension(){
 function getData(){
   console.log("get data");
   dataObj = JSON.parse(dataJson);
-  console.log(dataObj);
+  if(dataObj.hasOwnProperty(url)){
+    urlData = dataObj[url]
+    console.log(urlData);
+    numCookies = urlData["num_cookies"];
+    numNotHTTP = urlData["not_http"];
+    numNotHost = urlData["not_host"];
+    cookies[0] = urlData["common"][0];
+    cookies[1] = urlData["common"][1];
+    cookies[2] = urlData["common"][2];
+  }
+  console.log(numCookies);
 };
 
 // load pop-up
@@ -139,7 +147,7 @@ function loadPopup(){
     body.insertAdjacentHTML ("afterbegin", collapsed);
 };
 
-// toggle pop-up
+// toggle pop-up <-- comment out for browser version
 function togglePopup(){
     console.log("toggle popup")
     var localPopup = document.getElementById("popup-owpm-id");

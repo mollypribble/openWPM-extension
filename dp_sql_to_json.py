@@ -2,7 +2,7 @@ import sqlite3 as lite
 import json
 
 # connect to the output database
-openwpm_db = "./datadir/crawl-data.sqlite"
+openwpm_db = "./datadir/crawl-data-new.sqlite"
 conn = lite.connect(openwpm_db)
 cur = conn.cursor()
 
@@ -28,9 +28,9 @@ for url in urls:
                             "FROM javascript_cookies as j "
                             "WHERE visit_id="+str(url[1])):
         cookies_intermediate.append(name)
-        if http==1:
+        if http==0:
             http_intermediate = http_intermediate + 1
-        if host==1:
+        if host==0:
             host_intermediate = host_intermediate + 1
     cookies.append(cookies_intermediate)
     http_only.append(http_intermediate)
@@ -57,7 +57,8 @@ for url in urls:
 data_dict = {}
 
 for i in range(len(urls)):
-    data_dict[urls[i][0]] = {"cookies": cookies[i], "num_cookies": num_cookies[i], "http_only": http_only[i], "host_only": host_only[i], "common": most_common[i]}
+    data_dict[urls[i][0]] = {"url": urls[i][0], "cookies": cookies[i], "num_cookies": num_cookies[i], "not_http": http_only[i], "not_host": host_only[i], "common": most_common[i]}
 
+print(data_dict)
 with open('data.json', 'w') as f:
     json.dump(data_dict, f)
