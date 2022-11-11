@@ -19,7 +19,13 @@ sites_original = [
 ]
 
 # testing out how long it takes to run on one site (15-18 secs to crawl and execute custom commands)
-sites = ["http://www.princeton.edu"]
+sites = [
+    "http://www.princeton.edu",
+    "https://mollypribble.github.io/openWPM-extension/",
+    "http://www.example.com",
+    "http://citp.princeton.edu/",
+
+]
 #######################################################
 
 # Loads the default ManagerParams
@@ -58,11 +64,11 @@ manager_params.log_path = Path("./datadir/openwpm.log")
 with TaskManager(
     manager_params,
     browser_params,
-    SQLiteStorageProvider(Path("./datadir/crawl-data-new.sqlite")),
+    SQLiteStorageProvider(Path("./datadir/crawl-data-new-3.sqlite")),
     None,
 ) as manager:
     # Visits the sites
-    for index, site in enumerate(sites_original):
+    for index, site in enumerate(sites):
 
         def callback(success: bool, val: str = site) -> None:
             print(

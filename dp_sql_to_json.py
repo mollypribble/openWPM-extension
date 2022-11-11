@@ -2,7 +2,7 @@ import sqlite3 as lite
 import json
 
 # connect to the output database
-openwpm_db = "./datadir/crawl-data-new.sqlite"
+openwpm_db = "./datadir/crawl-data-new-3.sqlite"
 conn = lite.connect(openwpm_db)
 cur = conn.cursor()
 
