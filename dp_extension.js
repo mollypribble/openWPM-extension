@@ -75,34 +75,6 @@ let url = "?" // PLACEHOLDER: PUT INFO FROM PAGE HERE ON LOAD
 // display common cookies
 let cookies = ["--", "--", "--"] // PLACEHOLDER: PUT INFO FROM DB HERE (would be nice to grab the top 3 hosts when we query the DB so we don't have to do it here)
 
-// define pop-up HTML
-let popup = `<div class="popup-owpm"> 
-                <div class="popup" id="popup-owpm-id">
-                    <div class="header">
-                        <img src="dp_frontend/cookies.png" width=60px style="margin:10px; margin-right:0px;">
-                        <p style="font-family:KanitBold; margin:5px; font-size:32px; width:250px; margin-top:20px">The Cookie Jar</p>
-                        <img src="dp_frontend/x.png" width=20px onclick="togglePopup()" style="cursor:pointer; margin:10px; margin-bottom: 50px; opacity: 0.7">
-                    </div>
-                    <p style="margin:10px; padding-left:10px; font-size:18px;"> We've detected ${numCookies} cookies on this page</p>
-                    <p style="margin:10px; padding-left:10px; font-size:16px;"> ${numNotHTTP}/${numCookies} are visible to outside scripts</p>
-                    <p style="margin:10px; padding-left:10px; font-size:16px;"> ${numNotHost}/${numCookies} are sent to multiple subdomains</p>
-                    <p style="margin:10px; margin-bottom:0px; padding-left:10px; font-size:16px;">The most common cookies come from:</p>
-                    <ul style="list-style-type: circle; font-size:14px; margin:7px;">
-                      <li>${cookies[0]}</li>
-                      <li>${cookies[1]}</li>
-                      <li>${cookies[2]}</li>
-                    </ul>
-                    <a href="https://www.flaticon.com/free-icons/cookie"  style="margin:10px; opacity:0.8; text-decoration:none; color:grey; font-size:8px;">Cookie icons created by Freepik on Flaticon</a>
-                </div> 
-            </div>`;
-
-// define collapsed pop-up
-let collapsed = `<div class="collapsed-owpm" id="draggable">
-                    <div class="collapsed" id="collapsed-owpm-id">
-                        <img src="dp_frontend/cookies.png" width=60px onclick="togglePopup()" style="cursor:pointer; margin:5px;">
-                    </div>
-                </div>`;
-
 // load extension
 function loadExtension(){
   console.log("loaded");
@@ -150,6 +122,34 @@ function getData(){
 
 // load pop-up
 function loadPopup(){
+    // define pop-up HTML after setting global variables
+    let popup = `<div class="popup-owpm"> 
+    <div class="popup" id="popup-owpm-id">
+        <div class="header">
+            <img src="dp_frontend/cookies.png" width=60px style="margin:10px; margin-right:0px;">
+            <p style="font-family:KanitBold; margin:5px; font-size:32px; width:250px; margin-top:20px">The Cookie Jar</p>
+            <img src="dp_frontend/x.png" width=20px onclick="togglePopup()" style="cursor:pointer; margin:10px; margin-bottom: 50px; opacity: 0.7">
+        </div>
+        <p style="margin:10px; padding-left:10px; font-size:18px;"> We've detected ${numCookies} cookies on this page</p>
+        <p style="margin:10px; padding-left:10px; font-size:16px;"> ${numNotHTTP}/${numCookies} are visible to outside scripts</p>
+        <p style="margin:10px; padding-left:10px; font-size:16px;"> ${numNotHost}/${numCookies} are sent to multiple subdomains</p>
+        <p style="margin:10px; margin-bottom:0px; padding-left:10px; font-size:16px;">The most common cookies come from:</p>
+        <ul style="list-style-type: circle; font-size:14px; margin:7px;">
+          <li>${cookies[0]}</li>
+          <li>${cookies[1]}</li>
+          <li>${cookies[2]}</li>
+        </ul>
+        <a href="https://www.flaticon.com/free-icons/cookie"  style="margin:10px; opacity:0.8; text-decoration:none; color:grey; font-size:8px;">Cookie icons created by Freepik on Flaticon</a>
+    </div> 
+    </div>`;
+
+    // define collapsed pop-up
+    let collapsed = `<div class="collapsed-owpm" id="draggable">
+        <div class="collapsed" id="collapsed-owpm-id">
+            <img src="dp_frontend/cookies.png" width=60px onclick="togglePopup()" style="cursor:pointer; margin:5px;">
+        </div>
+    </div>`;
+
     let body = document.getElementsByTagName("body")[0]
     body.insertAdjacentHTML ("afterbegin", popup);
     body.style.width = '360px';
