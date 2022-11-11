@@ -6,7 +6,7 @@
 // *** steps 1-2 done beforehand/need to be re-done if we want to add any more sites in the future ***
 
 
-// import data
+// import data <-- imports don't work on firefox (only chrome)
 // import dataJson from "./data.json" assert { type: "json" };
 
 // define style
@@ -24,10 +24,6 @@ let style = document.createElement('style');
     position: relative;
     display: inline-block;
   }
-  .collapsed-owpm {
-    position: relative;
-    display: inline-block;
-  }
   .popup-owpm .popup {
     visibility: visible;
     width: 360px;
@@ -41,6 +37,19 @@ let style = document.createElement('style');
     font-family: KanitLight;
     border: 1px solid #A2A2A2;
   }
+  .popup-owpm .show{
+    visibility: hidden;
+  }
+  .header{
+    display: flex;
+    flex-direction: row;
+  }
+  / * COLLAPSED NOT NEEDED IN EXTENSION */
+  /*
+  .collapsed-owpm {
+    position: relative;
+    display: inline-block;
+  }
   .collapsed-owpm .collapsed {
     visibility: hidden;
     width: 70px;
@@ -52,16 +61,10 @@ let style = document.createElement('style');
     right: 5;
     opacity: 0.8;
   }
-  .popup-owpm .show{
-    visibility: hidden;
-  }
   .collapsed-owpm .show{
     visibility: visible;
   }
-  .header{
-    display: flex;
-    flex-direction: row;
-  }`;
+  */`;
 
 
 // define global variables
@@ -163,28 +166,28 @@ function loadPopup(){
   </div>`;
 
     // define collapsed pop-up <-- not needed in browser version
-    let collapsed = `<div class="collapsed-owpm" id="draggable">
-      <div class="collapsed" id="collapsed-owpm-id">
-          <img src="dp_frontend/cookies.png" width=60px onclick="togglePopup()" style="cursor:pointer; margin:5px;">
-      </div>
-    </div>`;
+    // let collapsed = `<div class="collapsed-owpm" id="draggable">
+    //   <div class="collapsed" id="collapsed-owpm-id">
+    //       <img src="dp_frontend/cookies.png" width=60px onclick="togglePopup()" style="cursor:pointer; margin:5px;">
+    //   </div>
+    // </div>`;
 
     // insert elements on top of body
     let body = document.getElementsByTagName("body")[0]
     body.insertAdjacentHTML ("afterbegin", popup);
     body.style.width = '360px';
     body.style.height = '350px';
-    body.insertAdjacentHTML ("afterbegin", collapsed);
+    // body.insertAdjacentHTML ("afterbegin", collapsed);
 };
 
 // toggle pop-up <-- not needed in browser version
-function togglePopup(){
-    console.log("toggle popup")
-    var localPopup = document.getElementById("popup-owpm-id");
-    localPopup.classList.toggle("show");
-    var localCollapse = document.getElementById("collapsed-owpm-id");
-    localCollapse.classList.toggle("show");
-};
+// function togglePopup(){
+//     console.log("toggle popup")
+//     var localPopup = document.getElementById("popup-owpm-id");
+//     localPopup.classList.toggle("show");
+//     var localCollapse = document.getElementById("collapsed-owpm-id");
+//     localCollapse.classList.toggle("show");
+// };
 
 // on page load: load extension --> call functions to get appropriate data and append display to HTMl body
 window.onload = loadExtension();
