@@ -142,9 +142,6 @@ function getData(dataJson){
 
 };
 
-let blank = ""
-let self = "_self"
-
 // load pop-up
 function loadPopup(){
   console.log("load popup")
@@ -163,7 +160,7 @@ function loadPopup(){
       <ul style="list-style-type: circle; font-size:14px; margin:7px;">
         <li><a href="${cookieLinks[0]}" target="${linkTargets[0]}">${cookies[0]}</a></li>
         <li><a href="${cookieLinks[1]}" target="${linkTargets[1]}">${cookies[1]}</a></li>
-        <li><a href="${blank}" target="${self}">${cookies[2]}</a></li>
+        <li><a href="${cookieLinks[2]}" target="${linkTargets[2]}">${cookies[2]}</a></li>
       </ul>
       <a href="https://www.flaticon.com/free-icons/cookie"  style="margin:10px; opacity:0.8; text-decoration:none; color:grey; font-size:8px;">Cookie icons created by Freepik on Flaticon</a>
     </div> 
