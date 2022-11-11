@@ -135,6 +135,8 @@ function getData(dataJson){
 
 };
 
+let blank = ''
+
 // load pop-up
 function loadPopup(){
   console.log("load popup")
@@ -153,7 +155,7 @@ function loadPopup(){
       <ul style="list-style-type: circle; font-size:14px; margin:7px;">
         <li><a href="https://www.google.com/search?q=${cookies[0]}+cookies" target="_blank">${cookies[0]}</a></li>
         <li><a href="https://www.google.com/search?q=${cookies[1]}+cookies" target="_blank">${cookies[1]}</a></li>
-        <li><a href="''" target="_blank">--</a></li>
+        <li><a href="${blank}" target="_blank">--</a></li>
       </ul>
       <a href="https://www.flaticon.com/free-icons/cookie"  style="margin:10px; opacity:0.8; text-decoration:none; color:grey; font-size:8px;">Cookie icons created by Freepik on Flaticon</a>
     </div> 
