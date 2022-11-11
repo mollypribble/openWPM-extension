@@ -94,10 +94,10 @@ function loadExtension(){
       getData(data);
     });
 
-  // set data global var and then load popup
+  // set data global var and then load popup <-- used with import not fetch
   // getData();
 
-  // render pop-up
+  // render pop-up <-- used with import not fetch
   // loadPopup();
 };
 
@@ -150,7 +150,7 @@ function loadPopup(){
       <div class="header">
           <img src="dp_frontend/cookies.png" width=60px style="margin:10px; margin-right:0px;">
           <p style="font-family:KanitBold; margin:5px; font-size:32px; width:250px; margin-top:20px">The Cookie Jar</p>
-          <img src="dp_frontend/x.png" width=20px onclick="togglePopup()" style="cursor:pointer; margin:10px; margin-bottom: 50px; opacity: 0.7">
+          <!--<img src="dp_frontend/x.png" width=20px onclick="togglePopup()" style="cursor:pointer; margin:10px; margin-bottom: 50px; opacity: 0.7">-->
       </div>
       <p style="margin:10px; padding-left:10px; font-size:18px;"> We've detected ${numCookies} cookies on this page</p>
       <p style="margin:10px; padding-left:10px; font-size:16px;"> ${numNotHTTP}/${numCookies} are visible to outside scripts</p>
