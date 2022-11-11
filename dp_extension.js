@@ -22,7 +22,7 @@ let style = document.createElement('style');
   }
   .popup-owpm .popup {
     visibility: visible;
-    width: 360px;
+    width: 320px;
     background-color: #FAFDFE;
     color: black;
     text-align: left;
@@ -142,7 +142,7 @@ function loadPopup(){
     // insert elements on top of body
     let body = document.getElementsByTagName("body")[0]
     body.insertAdjacentHTML ("afterbegin", popup);
-    body.style.width = '360px';
+    body.style.width = '320px';
     body.style.height = '350px';
 };
 
