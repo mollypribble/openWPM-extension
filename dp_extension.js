@@ -46,7 +46,7 @@ let style = document.createElement('style');
     color: black;
   }
   a:hover {
-    text-decoration: #B7D5ED wavy underline;
+    text-decoration: #95BDDA wavy underline;
     cursor: pointer;
     color: black;
   }`;
