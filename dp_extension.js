@@ -66,10 +66,10 @@ let style = document.createElement('style');
 
 
 // define global variables
-let numCookies = "??" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
-let numNotHTTP = "??" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
-let numNotHost = "??" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
-let url = "??" // PLACEHOLDER: PUT INFO FROM PAGE HERE ON LOAD
+let numCookies = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let numNotHTTP = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let numNotHost = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let url = "XX" // PLACEHOLDER: PUT INFO FROM PAGE HERE ON LOAD
 
 // display common cookies
 let cookies = ["--", "--", "--"] // PLACEHOLDER: PUT INFO FROM DB HERE (would be nice to grab the top 3 hosts when we query the DB so we don't have to do it here)
@@ -135,7 +135,15 @@ function getData(){
     cookies[1] = urlData["common"][1];
     cookies[2] = urlData["common"][2];
   }
-  console.log(numCookies);
+  else{
+    numCookies = "??";
+    numNotHTTP = "??";
+    numNotHost = "??";
+    cookies[0] = "--";
+    cookies[1] = "--";
+    cookies[2] = "--";
+  }
+  console.log("got data");
 };
 
 // load pop-up
