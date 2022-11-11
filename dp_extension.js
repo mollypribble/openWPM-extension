@@ -43,11 +43,12 @@ let style = document.createElement('style');
   a {
     text-decoration: none;
     cursor: pointer;
+    color: black;
   }
   a:hover {
     text-decoration: #B7D5ED wavy underline;
-    transition: 0.2s;
     cursor: pointer;
+    color: black;
   }`;
 
 
