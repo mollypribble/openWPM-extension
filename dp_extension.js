@@ -126,9 +126,9 @@ function loadPopup(){
           <img src="dp_frontend/cookies.png" width=60px style="margin:10px; margin-right:0px;">
           <p style="font-family:KanitBold; margin:5px; font-size:32px; width:250px; margin-top:20px">The Cookie Jar</p>
       </div>
-      <p style="margin:10px; padding-left:10px; font-size:18px;">We found <span style="background-color: ${cookieColor}">${numCookies}</span> cookies on this page</p>
-      <p style="margin:10px; padding-left:10px; font-size:16px;"><span style="background-color: ${httpColor}">${numNotHTTP}/${numCookies}</span> are visible to outside scripts</p>
-      <p style="margin:10px; padding-left:10px; font-size:16px;"><span style="background-color: ${hostColor}">${numNotHost}/${numCookies}</span> are sent to multiple subdomains</p>
+      <p style="margin:10px; padding-left:10px; font-size:18px;">We found <span style="background-color: ${cookieColor}; border-radius: 15%;">${numCookies} cookies</span> on this page</p>
+      <p style="margin:10px; padding-left:10px; font-size:16px;"><span style="background-color: ${httpColor}; border-radius: 15%;">${numNotHTTP}/${numCookies}</span> are visible to outside scripts</p>
+      <p style="margin:10px; padding-left:10px; font-size:16px;"><span style="background-color: ${hostColor}; border-radius: 15%;">${numNotHost}/${numCookies}</span> are sent to multiple subdomains</p>
       <p style="margin:10px; margin-bottom:0px; padding-left:10px; font-size:16px;">The most common cookies come from:</p>
       <ul style="list-style-type: circle; font-size:14px; margin:7px;">
         <li>${cookies[0]}</li>
