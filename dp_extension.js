@@ -67,10 +67,10 @@ let style = document.createElement('style');
 
 
 // define global variables
-let numCookies = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
-let numNotHTTP = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
-let numNotHost = "XX" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
-let url = "XX" // PLACEHOLDER: PUT INFO FROM PAGE HERE ON LOAD
+let numCookies = "?" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let numNotHTTP = "?" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let numNotHost = "?" // PLACEHOLDER: PUT INFO FROM DB HERE ON LOAD
+let url = "?" // PLACEHOLDER: PUT INFO FROM PAGE HERE ON LOAD
 
 // display common cookies
 let cookies = ["--", "--", "--"] // PLACEHOLDER: PUT INFO FROM DB HERE (would be nice to grab the top 3 hosts when we query the DB so we don't have to do it here)
@@ -126,25 +126,24 @@ function loadExtension(){
 function getData(){
   console.log("get data");
   console.log(dataJson);
-  // dataObj = JSON.parse(dataJson);
-  // if(dataObj.hasOwnProperty(url)){
-  //   urlData = dataObj[url]
-  //   console.log(urlData);
-  //   numCookies = urlData["num_cookies"];
-  //   numNotHTTP = urlData["not_http"];
-  //   numNotHost = urlData["not_host"];
-  //   cookies[0] = urlData["common"][0];
-  //   cookies[1] = urlData["common"][1];
-  //   cookies[2] = urlData["common"][2];
-  // }
-  // else{
-  //   numCookies = "??";
-  //   numNotHTTP = "??";
-  //   numNotHost = "??";
-  //   cookies[0] = "--";
-  //   cookies[1] = "--";
-  //   cookies[2] = "--";
-  // }
+  if(dataJson.hasOwnProperty(url)){
+    urlData = dataJson[url]
+    console.log(urlData);
+    numCookies = dataJson["num_cookies"];
+    numNotHTTP = dataJson["not_http"];
+    numNotHost = dataJson["not_host"];
+    cookies[0] = dataJson["common"][0];
+    cookies[1] = dataJson["common"][1];
+    cookies[2] = dataJson["common"][2];
+  }
+  else{
+    numCookies = "??";
+    numNotHTTP = "??";
+    numNotHost = "??";
+    cookies[0] = "--";
+    cookies[1] = "--";
+    cookies[2] = "--";
+  }
   console.log("got data");
 };
 
