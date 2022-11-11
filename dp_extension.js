@@ -130,12 +130,12 @@ function getData(){
   if(dataJson.hasOwnProperty(url)){
     let urlData = dataJson[url]
     console.log(urlData);
-    numCookies = dataJson["num_cookies"];
-    numNotHTTP = dataJson["not_http"];
-    numNotHost = dataJson["not_host"];
-    cookies[0] = dataJson["common"][0];
-    cookies[1] = dataJson["common"][1];
-    cookies[2] = dataJson["common"][2];
+    numCookies = urlData["num_cookies"];
+    numNotHTTP = urlData["not_http"];
+    numNotHost = urlData["not_host"];
+    cookies[0] = urlData["common"][0];
+    cookies[1] = urlData["common"][1];
+    cookies[2] = urlData["common"][2];
   }
   else{
     numCookies = "??";
