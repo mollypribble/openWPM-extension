@@ -43,10 +43,13 @@ let style = document.createElement('style');
 
 
 // define global variables
-let numCookies = "?" // PLACEHOLDER or UNCRAWLED WEBSITE
-let numNotHTTP = "?" // PLACEHOLDER or UNCRAWLED WEBSITE
-let numNotHost = "?" // PLACEHOLDER or UNCRAWLED WEBSITE
-let url = "?" // PLACEHOLDER or UNCRAWLED WEBSITE
+let numCookies = "?"; // PLACEHOLDER or UNCRAWLED WEBSITE
+let numNotHTTP = "?"; // PLACEHOLDER or UNCRAWLED WEBSITE
+let numNotHost = "?"; // PLACEHOLDER or UNCRAWLED WEBSITE
+let url = "?"; // PLACEHOLDER or UNCRAWLED WEBSITE
+let cookieColor = "#FAFDFE"; // PLACEHOLDER or UNCRAWLED WEBSITE
+let httpColor = "#FAFDFE"; // PLACEHOLDER or UNCRAWLED WEBSITE
+let hostColor = "#FAFDFE"; // PLACEHOLDER or UNCRAWLED WEBSITE
 
 // display common cookies
 let cookies = ["--", "--", "--"] // PLACEHOLDER or UNCRAWLED WEBSITE or LESS THAN 3 COOKIE DOMAINS
@@ -88,6 +91,9 @@ function getData(dataJson){
     cookies[0] = urlData["common"][0];
     cookies[1] = urlData["common"][1];
     cookies[2] = urlData["common"][2];
+    cookieColor = urlData["cookie_color"];
+    httpColor = urlData["http_color"];
+    hostColor = urlData["host_color"];
 
     // if there are some empty cookies, return to placehoder
     if (cookies[0] == ""){
@@ -120,9 +126,9 @@ function loadPopup(){
           <img src="dp_frontend/cookies.png" width=60px style="margin:10px; margin-right:0px;">
           <p style="font-family:KanitBold; margin:5px; font-size:32px; width:250px; margin-top:20px">The Cookie Jar</p>
       </div>
-      <p style="margin:10px; padding-left:10px; font-size:18px;"> We've detected ${numCookies} cookies on this page</p>
-      <p style="margin:10px; padding-left:10px; font-size:16px;"> ${numNotHTTP}/${numCookies} are visible to outside scripts</p>
-      <p style="margin:10px; padding-left:10px; font-size:16px;"> ${numNotHost}/${numCookies} are sent to multiple subdomains</p>
+      <p style="margin:10px; padding-left:10px; font-size:18px;">We found <span style="background-color: ${cookieColor}>${numCookies}</span> cookies on this page</p>
+      <p style="margin:10px; padding-left:10px; font-size:16px;"><span style="background-color: ${httpColor}>${numNotHTTP}/${numCookies}</span> are visible to outside scripts</p>
+      <p style="margin:10px; padding-left:10px; font-size:16px;"><span style="background-color: ${hostColor}>${numNotHost}/${numCookies}</span> are sent to multiple subdomains</p>
       <p style="margin:10px; margin-bottom:0px; padding-left:10px; font-size:16px;">The most common cookies come from:</p>
       <ul style="list-style-type: circle; font-size:14px; margin:7px;">
         <li>${cookies[0]}</li>

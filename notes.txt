@@ -29,3 +29,7 @@ General Approach:
 - Use headless display mode to not disrupt browser experience
 - Then run dp_analysis
 - Pass relevant results back and display on extension
+
+Roughly got top 100 sites from here: https://www.semrush.com/blog/most-visited-websites/
+- did not do websites that were inappropriate (as this is a school project)
+- added other websites as well (colectivo, starbucks, online shopping sites, etc.) to have some less-popular sites represenetd as well
