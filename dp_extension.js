@@ -125,6 +125,7 @@ function loadExtension(){
 // get data
 function getData(){
   console.log("get data");
+  console.log(dataJson);
   dataObj = JSON.parse(dataJson);
   if(dataObj.hasOwnProperty(url)){
     urlData = dataObj[url]
