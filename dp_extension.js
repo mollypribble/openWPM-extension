@@ -142,8 +142,8 @@ function loadPopup(){
       <p style="margin:10px; margin-bottom:0px; padding-left:10px; font-size:16px;">The most common cookies come from:</p>
       <ul style="list-style-type: circle; font-size:14px; margin:7px;">
         <li><a href="https://www.google.com/search?q=${cookies[0]}+cookies" target="_blank">${cookies[0]}</a></li>
-        <li><a href="https://www.google.com/search?q=${cookies[0]}+cookies" target="_blank">${cookies[1]}</a></li>
-        <li><a href="https://www.google.com/search?q=${cookies[0]}+cookies" target="_blank">${cookies[2]}</a></li>
+        <li><a href="https://www.google.com/search?q=${cookies[1]}+cookies" target="_blank">${cookies[1]}</a></li>
+        <li><a href="https://www.google.com/search?q=${cookies[2]}+cookies" target="_blank">${cookies[2]}</a></li>
       </ul>
       <a href="https://www.flaticon.com/free-icons/cookie"  style="margin:10px; opacity:0.8; text-decoration:none; color:grey; font-size:8px;">Cookie icons created by Freepik on Flaticon</a>
     </div> 
