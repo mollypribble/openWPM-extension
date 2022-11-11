@@ -8,7 +8,8 @@
 
 
 // get data
-import { dataJson } from "./data.json"
+// import { dataJson } from "./data.json"
+import dataJson from "./data.json" assert { type: "json" };
 
 // define style
 let style = document.createElement('style');
