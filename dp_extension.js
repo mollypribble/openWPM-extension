@@ -63,6 +63,7 @@ let hostColor = "#FAFDFE"; // PLACEHOLDER or UNCRAWLED WEBSITE
 
 // display common cookies
 let cookies = ["--", "--", "--"] // PLACEHOLDER or UNCRAWLED WEBSITE or LESS THAN 3 COOKIE DOMAINS
+let cookieLinks = ["", "", ""] // PLACEHOLDER or UNCRAWLED WEBSITE or LESS THAN 3 COOKIE DOMAINS
 
 // load extension
 function loadExtension(){
@@ -101,6 +102,9 @@ function getData(dataJson){
     cookies[0] = urlData["common"][0];
     cookies[1] = urlData["common"][1];
     cookies[2] = urlData["common"][2];
+    cookieLinks[0] = `https://www.google.com/search?q=${cookies[0]}+cookies`
+    cookieLinks[1] = `https://www.google.com/search?q=${cookies[1]}+cookies`
+    cookieLinks[2] = `https://www.google.com/search?q=${cookies[2]}+cookies`
     cookieColor = urlData["cookie_color"];
     httpColor = urlData["http_color"];
     hostColor = urlData["host_color"];
@@ -110,13 +114,19 @@ function getData(dataJson){
       cookies[0] = "--"
       cookies[1] = "--"
       cookies[2] = "--"
+      cookieLinks[0] = ''
+      cookieLinks[1] = ''
+      cookieLinks[2] = ''
     }
     else if (cookies[1] == ""){
       cookies[1] = "--"
       cookies[2] = "--"
+      cookieLinks[1] = ''
+      cookieLinks[2] = ''
     }
     else if (cookies[2] == ""){
       cookies[2] = "--"
+      cookieLinks[2] = ''
     };
   }
 
@@ -143,7 +153,7 @@ function loadPopup(){
       <ul style="list-style-type: circle; font-size:14px; margin:7px;">
         <li><a href="https://www.google.com/search?q=${cookies[0]}+cookies" target="_blank">${cookies[0]}</a></li>
         <li><a href="https://www.google.com/search?q=${cookies[1]}+cookies" target="_blank">${cookies[1]}</a></li>
-        <li><a href="https://www.google.com/search?q=${cookies[2]}+cookies" target="_blank">${cookies[2]}</a></li>
+        <li><a href="''" target="_blank">--</a></li>
       </ul>
       <a href="https://www.flaticon.com/free-icons/cookie"  style="margin:10px; opacity:0.8; text-decoration:none; color:grey; font-size:8px;">Cookie icons created by Freepik on Flaticon</a>
     </div> 
