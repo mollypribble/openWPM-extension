@@ -5,10 +5,6 @@
 // 4. render pop up on page load
 // *** steps 1-2 done beforehand/need to be re-done if we want to add any more sites in the future ***
 
-
-// import data <-- imports don't work on firefox (only chrome)
-// import dataJson from "./data.json" assert { type: "json" };
-
 // define style
 let style = document.createElement('style');
   style.innerHTML = `
@@ -43,28 +39,7 @@ let style = document.createElement('style');
   .header{
     display: flex;
     flex-direction: row;
-  }
-  / * COLLAPSED NOT NEEDED IN EXTENSION */
-  /*
-  .collapsed-owpm {
-    position: relative;
-    display: inline-block;
-  }
-  .collapsed-owpm .collapsed {
-    visibility: hidden;
-    width: 70px;
-    color: #fff;
-    text-align: center;
-    position: fixed;
-    z-index: 100;
-    bottom: 5; 
-    right: 5;
-    opacity: 0.8;
-  }
-  .collapsed-owpm .show{
-    visibility: visible;
-  }
-  */`;
+  }`;
 
 
 // define global variables
@@ -93,12 +68,6 @@ function loadExtension(){
     .then((data) => {
       getData(data);
     });
-
-  // set data global var and then load popup <-- used with import not fetch
-  // getData();
-
-  // render pop-up <-- used with import not fetch
-  // loadPopup();
 };
 
 // get data
@@ -150,7 +119,6 @@ function loadPopup(){
       <div class="header">
           <img src="dp_frontend/cookies.png" width=60px style="margin:10px; margin-right:0px;">
           <p style="font-family:KanitBold; margin:5px; font-size:32px; width:250px; margin-top:20px">The Cookie Jar</p>
-          <!--<img src="dp_frontend/x.png" width=20px onclick="togglePopup()" style="cursor:pointer; margin:10px; margin-bottom: 50px; opacity: 0.7">-->
       </div>
       <p style="margin:10px; padding-left:10px; font-size:18px;"> We've detected ${numCookies} cookies on this page</p>
       <p style="margin:10px; padding-left:10px; font-size:16px;"> ${numNotHTTP}/${numCookies} are visible to outside scripts</p>
@@ -165,29 +133,12 @@ function loadPopup(){
     </div> 
   </div>`;
 
-    // define collapsed pop-up <-- not needed in browser version
-    // let collapsed = `<div class="collapsed-owpm" id="draggable">
-    //   <div class="collapsed" id="collapsed-owpm-id">
-    //       <img src="dp_frontend/cookies.png" width=60px onclick="togglePopup()" style="cursor:pointer; margin:5px;">
-    //   </div>
-    // </div>`;
-
     // insert elements on top of body
     let body = document.getElementsByTagName("body")[0]
     body.insertAdjacentHTML ("afterbegin", popup);
     body.style.width = '360px';
     body.style.height = '350px';
-    // body.insertAdjacentHTML ("afterbegin", collapsed);
 };
-
-// toggle pop-up <-- not needed in browser version
-// function togglePopup(){
-//     console.log("toggle popup")
-//     var localPopup = document.getElementById("popup-owpm-id");
-//     localPopup.classList.toggle("show");
-//     var localCollapse = document.getElementById("collapsed-owpm-id");
-//     localCollapse.classList.toggle("show");
-// };
 
 // on page load: load extension --> call functions to get appropriate data and append display to HTMl body
 window.onload = loadExtension();
