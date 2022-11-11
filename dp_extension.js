@@ -126,25 +126,25 @@ function loadExtension(){
 function getData(){
   console.log("get data");
   console.log(dataJson);
-  dataObj = JSON.parse(dataJson);
-  if(dataObj.hasOwnProperty(url)){
-    urlData = dataObj[url]
-    console.log(urlData);
-    numCookies = urlData["num_cookies"];
-    numNotHTTP = urlData["not_http"];
-    numNotHost = urlData["not_host"];
-    cookies[0] = urlData["common"][0];
-    cookies[1] = urlData["common"][1];
-    cookies[2] = urlData["common"][2];
-  }
-  else{
-    numCookies = "??";
-    numNotHTTP = "??";
-    numNotHost = "??";
-    cookies[0] = "--";
-    cookies[1] = "--";
-    cookies[2] = "--";
-  }
+  // dataObj = JSON.parse(dataJson);
+  // if(dataObj.hasOwnProperty(url)){
+  //   urlData = dataObj[url]
+  //   console.log(urlData);
+  //   numCookies = urlData["num_cookies"];
+  //   numNotHTTP = urlData["not_http"];
+  //   numNotHost = urlData["not_host"];
+  //   cookies[0] = urlData["common"][0];
+  //   cookies[1] = urlData["common"][1];
+  //   cookies[2] = urlData["common"][2];
+  // }
+  // else{
+  //   numCookies = "??";
+  //   numNotHTTP = "??";
+  //   numNotHost = "??";
+  //   cookies[0] = "--";
+  //   cookies[1] = "--";
+  //   cookies[2] = "--";
+  // }
   console.log("got data");
 };
 
