@@ -64,6 +64,7 @@ let hostColor = "#FAFDFE"; // PLACEHOLDER or UNCRAWLED WEBSITE
 // display common cookies
 let cookies = ["--", "--", "--"] // PLACEHOLDER or UNCRAWLED WEBSITE or LESS THAN 3 COOKIE DOMAINS
 let cookieLinks = ["", "", ""] // PLACEHOLDER or UNCRAWLED WEBSITE or LESS THAN 3 COOKIE DOMAINS
+let linkTargets = ["_blank", "_blank", "_blank"] // DEFAULT TARGETS UNLESS LESS THAN 3 COOKE DOMAINS
 
 // load extension
 function loadExtension(){
@@ -117,16 +118,22 @@ function getData(dataJson){
       cookieLinks[0] = ''
       cookieLinks[1] = ''
       cookieLinks[2] = ''
+      linkTargets[0] = '_self'
+      linkTargets[1] = '_self'
+      linkTargets[2] = '_self'
     }
     else if (cookies[1] == ""){
       cookies[1] = "--"
       cookies[2] = "--"
       cookieLinks[1] = ''
       cookieLinks[2] = ''
+      linkTargets[1] = '_self'
+      linkTargets[2] = '_self'
     }
     else if (cookies[2] == ""){
       cookies[2] = "--"
       cookieLinks[2] = ''
+      linkTargets[2] = '_self'
     };
   }
 
@@ -135,7 +142,8 @@ function getData(dataJson){
 
 };
 
-let blank = ''
+let blank = ""
+let self = "_self"
 
 // load pop-up
 function loadPopup(){
@@ -153,9 +161,9 @@ function loadPopup(){
       <p style="margin:10px; padding-left:10px; font-size:16px;"><span style="background-color: ${hostColor}; border-radius: 15%; padding-left: 4px; padding-right: 4px;">${numNotHost}/${numCookies}</span> are sent to multiple subdomains</p>
       <p style="margin:10px; margin-bottom:0px; padding-left:10px; font-size:16px;">The most common cookies come from:</p>
       <ul style="list-style-type: circle; font-size:14px; margin:7px;">
-        <li><a href="https://www.google.com/search?q=${cookies[0]}+cookies" target="_blank">${cookies[0]}</a></li>
-        <li><a href="https://www.google.com/search?q=${cookies[1]}+cookies" target="_blank">${cookies[1]}</a></li>
-        <li><a href="${blank}" target="_blank">--</a></li>
+        <li><a href="${cookieLinks[0]}" target="${linkTargets[0]}">${cookies[0]}</a></li>
+        <li><a href="${cookieLinks[1]}" target="${linkTargets[1]}">${cookies[1]}</a></li>
+        <li><a href="${blank}" target="${self}">${cookies[2]}</a></li>
       </ul>
       <a href="https://www.flaticon.com/free-icons/cookie"  style="margin:10px; opacity:0.8; text-decoration:none; color:grey; font-size:8px;">Cookie icons created by Freepik on Flaticon</a>
     </div> 
