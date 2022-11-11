@@ -128,7 +128,7 @@ function getData(){
   console.log(dataJson);
   console.log(url);
   if(dataJson.hasOwnProperty(url)){
-    urlData = dataJson[url]
+    let urlData = dataJson[url]
     console.log(urlData);
     numCookies = dataJson["num_cookies"];
     numNotHTTP = dataJson["not_http"];
