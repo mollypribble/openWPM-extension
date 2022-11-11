@@ -39,6 +39,15 @@ let style = document.createElement('style');
   .header{
     display: flex;
     flex-direction: row;
+  }
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  a:hover {
+    text-decoration: #B7D5ED wavy underline;
+    transition: 0.2s;
+    cursor: pointer;
   }`;
 
 
@@ -131,9 +140,9 @@ function loadPopup(){
       <p style="margin:10px; padding-left:10px; font-size:16px;"><span style="background-color: ${hostColor}; border-radius: 15%; padding-left: 4px; padding-right: 4px;">${numNotHost}/${numCookies}</span> are sent to multiple subdomains</p>
       <p style="margin:10px; margin-bottom:0px; padding-left:10px; font-size:16px;">The most common cookies come from:</p>
       <ul style="list-style-type: circle; font-size:14px; margin:7px;">
-        <li>${cookies[0]}</li>
-        <li>${cookies[1]}</li>
-        <li>${cookies[2]}</li>
+        <li><a href="https://www.google.com/search?q=${cookies[0]}+cookies" target="_blank">${cookies[0]}</a></li>
+        <li><a href="https://www.google.com/search?q=${cookies[0]}+cookies" target="_blank">${cookies[1]}</a></li>
+        <li><a href="https://www.google.com/search?q=${cookies[0]}+cookies" target="_blank">${cookies[2]}</a></li>
       </ul>
       <a href="https://www.flaticon.com/free-icons/cookie"  style="margin:10px; opacity:0.8; text-decoration:none; color:grey; font-size:8px;">Cookie icons created by Freepik on Flaticon</a>
     </div> 
