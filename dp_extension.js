@@ -85,15 +85,21 @@ function loadExtension(){
   console.log("got url")
   console.log(url)
 
+  fetch("./data.json")
+    .then((res) => res.json())
+    .then((data) => {
+      getData(data);
+    });
+
   // set data global var and then load popup
-  getData();
+  // getData();
 
   // render pop-up
-  loadPopup();
+  // loadPopup();
 };
 
 // get data
-function getData(){
+function getData(dataJson){
   console.log("get data");
 
   // if the url has been pre-crawled...
@@ -125,6 +131,10 @@ function getData(){
       cookies[2] = "--"
     };
   }
+
+  // load pop-up after setting global variables
+  loadPopup();
+
 };
 
 // load pop-up
