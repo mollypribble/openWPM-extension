@@ -91,3 +91,4 @@ docs/apidoc/
 node_modules
 
 datadir
+*.DS_Store

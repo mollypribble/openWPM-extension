@@ -7,6 +7,14 @@
     "scripts": ["feature.js"]
   },
   "content_scripts": [],
+  "browser_action": {
+    "default_icon": "icons/cookies.png",
+    "default_title": "Cookie Jar",
+    "default_popup": "popup/dp_preview.html"
+  },
+  "web_accessible_resources": [
+    "popup/data.json"
+  ],
   "applications": {
     "gecko": {
       "id": "openwpm@mozilla.org",
